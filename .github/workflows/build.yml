@@ -2,9 +2,11 @@ name: Build CampusCoffee
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - 'feature/*'    # теперь триггер на все ветки, начинающиеся с feature/
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -19,3 +21,4 @@ jobs:
 
       - name: Build with Maven
         run: mvn -B package --file pom.xml
+
